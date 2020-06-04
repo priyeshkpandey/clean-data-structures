@@ -8,5 +8,35 @@
     <artifactId>data-structures</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <plantuml.plugin.version>1.2</plantuml.plugin.version>
+        <plantuml.version>7999</plantuml.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.jeluard</groupId>
+                <artifactId>plantuml-maven-plugin</artifactId>
+                <version>${plantuml.plugin.version}</version>
+                <configuration>
+                    <sourceFiles>
+                        <directory>${project.basedir}</directory>
+                        <includes>
+                            <include>src/main/plantuml/**/*.txt</include>
+                        </includes>
+                    </sourceFiles>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sourceforge.plantuml</groupId>
+                        <artifactId>plantuml</artifactId>
+                        <version>${plantuml.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
