@@ -1,4 +1,4 @@
-package clean.project.ds.linkedlist.model.contract;
+package clean.project.ds.common.model.contract;
 
 public interface Node<T> {
     public T getInfo();
