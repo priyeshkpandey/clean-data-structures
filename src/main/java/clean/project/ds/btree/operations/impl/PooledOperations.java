@@ -12,7 +12,7 @@ import java.util.Set;
 public class PooledOperations<T> implements Creation<T>, Removal<T> {
 
     private final TreeFactoryBuilder<T> treeFactoryBuilder = new TreeFactoryBuilder<T>();
-    private final Set<BinaryTreeNode<T>> binaryTreeNodes = new HashSet<BinaryTreeNode<T>>();
+    private final Set<BinaryTreeNode<T>> binaryTreeNodes = new HashSet<>();
     private final BinaryTreeNodeFactory<T> binaryTreeNodeFactory;
 
     public PooledOperations() {

@@ -3,17 +3,21 @@ package clean.project.ds.queue.impl;
 import clean.project.ds.queue.contract.MonitoredLimitedQueue;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class StraightMonitoredLimitedQueueImpl<T> implements MonitoredLimitedQueue<T> {
+public class MonitoredLimitedPriorityQueueImpl<T> implements MonitoredLimitedQueue<T> {
 
     private int size;
     private int front;
     private int rear;
     private List<T> queue;
+    private Comparator<T> comparator;
 
-    public StraightMonitoredLimitedQueueImpl(final int size) {
+    public MonitoredLimitedPriorityQueueImpl(final int size, final Comparator<T> comparator) {
         this.size = size;
+        this.comparator = comparator;
         this.front = 0;
         this.rear = 0;
         queue = new ArrayList<T>();
@@ -35,6 +39,7 @@ public class StraightMonitoredLimitedQueueImpl<T> implements MonitoredLimitedQue
     public void insert(T item) throws Exception {
         if (!isFull()) {
             queue.add(this.rear++, item);
+            Collections.sort(this.queue, this.comparator);
         } else {
             throw new Exception("Queue is full");
         }

@@ -27,6 +27,11 @@ public class CircularMonitoredLimitedQueueImpl<T> implements MonitoredLimitedQue
                 || ((this.rear - this.front) >= (this.size - 1));
     }
 
+    @Override
+    public int getCount() {
+        return this.queue.size();
+    }
+
     public void insert(T item) throws Exception {
         if (!isFull()) {
             this.rear = ++this.rear % this.size;
