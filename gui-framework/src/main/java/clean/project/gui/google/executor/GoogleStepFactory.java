@@ -17,7 +17,7 @@ public class GoogleStepFactory implements Factory<AbstractGoogleSeleniumStep> {
         switch (this.seleniumBrowserType) {
             case HEADLESS_CHROME: return new GoogleSeleniumStepHeadlessChrome(this.pageName, this.targetName, this.actionSequence);
             case CHROME: return new GoogleSeleniumStepChrome(this.pageName, this.targetName, this.actionSequence);
-            case FIREFOX: throw new RuntimeException("No step implementation for Firefox");
+            case FIREFOX: return new GoogleSeleniumStepFirefox(this.pageName, this.targetName, this.actionSequence);
             default : throw new RuntimeException("No such step type defined");
         }
     }

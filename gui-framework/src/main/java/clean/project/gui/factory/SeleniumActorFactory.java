@@ -4,6 +4,7 @@ import clean.project.gui.contract.Actor;
 import clean.project.gui.contract.SeleniumActorI;
 import clean.project.gui.contract.SeleniumBrowserType;
 import clean.project.gui.impl.ChromeSeleniumActor;
+import clean.project.gui.impl.FirefoxSeleniumActor;
 import clean.project.gui.impl.HeadlessChromeSeleniumActor;
 import clean.project.gui.interceptor.ActorHandler;
 import org.openqa.selenium.By;
@@ -36,7 +37,9 @@ public class SeleniumActorFactory implements Factory<Actor<WebElement, By>> {
             case CHROME: this.seleniumActor = (SeleniumActorI) Proxy.newProxyInstance(ChromeSeleniumActor.class.getClassLoader(),
                     new Class[] {SeleniumActorI.class}, new ActorHandler(new ChromeSeleniumActor()));
                 break;
-            case FIREFOX: throw new RuntimeException("Firefox actor not implemented");
+            case FIREFOX: this.seleniumActor = (SeleniumActorI) Proxy.newProxyInstance(FirefoxSeleniumActor.class.getClassLoader(),
+                    new Class[] {SeleniumActorI.class}, new ActorHandler(new FirefoxSeleniumActor()));
+            break;
             default: throw new RuntimeException("No ActorType for selenium is set");
         }
     }

@@ -6,7 +6,7 @@ import clean.project.gui.google.scenarios.GoogleSearchScenario;
 public class Demo {
     public static void main(String[] args) {
         try {
-            final GoogleSearchScenario googleSearchScenario = new GoogleSearchScenario(SeleniumBrowserType.CHROME);
+            final GoogleSearchScenario googleSearchScenario = new GoogleSearchScenario(SeleniumBrowserType.FIREFOX);
             googleSearchScenario.googleSearchFor("selenium");
         } catch (Exception ex) {
             ex.printStackTrace();

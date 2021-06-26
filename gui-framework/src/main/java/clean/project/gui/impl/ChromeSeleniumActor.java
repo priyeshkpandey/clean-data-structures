@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class ChromeSeleniumActor extends AbstractSeleniumActor {
     private static final String OS = System.getProperty("os.name").toLowerCase();
     private static final String FILE_SEPARATOR = System.getProperty("file.separator");
-    private static final String CHROME_DRIVERS_DIR = "exec" + FILE_SEPARATOR + "chrome_drivers" + FILE_SEPARATOR;
+    private static final String CHROME_DRIVERS_DIR = "gui-framework" + FILE_SEPARATOR + "exec" + FILE_SEPARATOR + "chrome_drivers" + FILE_SEPARATOR;
     private static final String WINDOWS_DRIVER_NAME = "chromedriver.exe";
     private static final String MAC_DRIVER_NAME = "chromedriver_mac";
     private static final String LINUX_DRIVER_NAME = "chromedriver";
