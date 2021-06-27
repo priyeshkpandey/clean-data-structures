@@ -17,15 +17,16 @@ jobs:
       RUNNER_ALLOW_RUNASROOT : 1
     container:
       image: priyeshkpandeysf/gui-framework
+      steps:
+        - name: Cleaning up the $GITHUB_WORKSPACE as root from a Docker image
+          # Volume auto mounted by gh actions pointing to the current working-directory
+          run: find /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}/. -name . -o -prune -exec rm -rf -- {} + || true
+
 
     steps:
-      - name: Create repo direcotry
-        run: mkdir repo
-      - name: Move inside repo directory
-        run: cd repo
-      - name: Checkout with git directly
-        run: /usr/bin/git clone https://github.com/priyeshkpandey/clean-data-structures.git
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Move into the gui-framework
-        run: cd clean-data-structures/gui-framework
+        run: cd gui-framework
       - name: Run the test using the Maven
         run: mvn test -Dtest=GoogleTests#verifyGoogleWithHeadlessChromeOnDocker
