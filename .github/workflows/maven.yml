@@ -17,7 +17,9 @@ jobs:
       image: priyeshkpandeysf/gui-framework
 
     steps:
+      - name: Login into Docker container
+        run:  /usr/bin/docker exec -it $( /usr/bin/docker ps -q --filter="status=running") /bin/bash
       - name: Move into the gui-framework
-        run: cd repo/clean-data-structures/gui-framework
+        run: cd ~/repo/clean-data-structures/gui-framework
       - name: Run the test using the Maven
         run: mvn test -Dtest=GoogleTests#verifyGoogleWithHeadlessChromeOnDocker
