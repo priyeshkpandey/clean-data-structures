@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: browser-actions/setup-chrome@91.0.4472.77
+      - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
       - name: Checkout repo
         uses: actions/checkout@v2
