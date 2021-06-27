@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Change permissions
-        run: sudo chown -R $USER:$USER /home/github/actions-runner/_work/clean-data-structures
+        run: chown -R $USER:$USER /home/github/actions-runner/_work/clean-data-structures
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Move into the gui-framework
