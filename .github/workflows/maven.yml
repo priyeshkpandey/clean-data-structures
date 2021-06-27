@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Provide permissions for the container
-        run: sudo chown -R $USER:$USER /__w/clean-data-structures
+        run: chown -R $USER:$USER /__w/clean-data-structures
       - uses: actions/checkout@v2
       - name: Move into the gui-framework
         run: cd gui-framework
