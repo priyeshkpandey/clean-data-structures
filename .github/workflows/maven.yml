@@ -20,6 +20,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Move into the gui-framework
-        run: cd clean-data-structures/gui-framework
+        run: cd gui-framework
       - name: Run the test using the Maven
         run: mvn test -Dtest=GoogleTests#verifyGoogleWithHeadlessChrome
