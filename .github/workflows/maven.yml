@@ -13,18 +13,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container:
-      image: priyeshkpandeysf/gui-framework
-      env:
-        RUNNER_ALLOW_RUNASROOT: 1
 
     steps:
-      - name: Print directory
-        run: pwd
-      - name: Change permissions
-        run: chown -R $USER:$USER /__w/clean-data-structures/clean-data-structures
+      - uses: browser-actions/setup-chrome@91.0
+        run: chrome --version
       - name: Checkout repo
-        run: git clone https://github.com/priyeshkpandey/clean-data-structures.git
+        uses: actions/checkout@v2
       - name: Move into the gui-framework
         run: cd clean-data-structures/gui-framework
       - name: Run the test using the Maven
