@@ -12,4 +12,8 @@ COPY --from=Maven /usr/local/bin/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
+RUN mkdir repo
+RUN cd repo
+RUN git clone https://github.com/priyeshkpandey/clean-data-structures.git
+
 EXPOSE 3000
