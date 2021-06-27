@@ -23,6 +23,6 @@ jobs:
         uses: actions/checkout@v2
         path: "$HOME/repo"
       - name: Move into the gui-framework
-        run: cd "$HOME/repo/clean-data-structures/gui-framework"
+        run: cd ${{ HOME }}/repo/clean-data-structures/gui-framework
       - name: Run the test using the Maven
         run: mvn test -Dtest=GoogleTests#verifyGoogleWithHeadlessChromeOnDocker
