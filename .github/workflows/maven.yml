@@ -13,13 +13,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      RUNNER_ALLOW_RUNASROOT : 1
     container:
       image: priyeshkpandeysf/gui-framework
 
     steps:
+      - name: Provide permissions for the container
+        run: chown -R $USER:$USER ./
       - name: Checkout with git directly
         run: /usr/bin/git clone https://github.com/priyeshkpandey/clean-data-structures.git
       - name: Move into the gui-framework
-        run: cd gui-framework
+        run: cd clean-data-structures/gui-framework
       - name: Run the test using the Maven
         run: mvn test -Dtest=GoogleTests#verifyGoogleWithHeadlessChromeOnDocker
