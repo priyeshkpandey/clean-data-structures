@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        path: "$HOME/repo"
+        path: "${{HOME}}/repo"
       - name: Move into the gui-framework
         run: cd ${{ HOME }}/repo/clean-data-structures/gui-framework
       - name: Run the test using the Maven
