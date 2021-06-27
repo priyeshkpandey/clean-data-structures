@@ -19,8 +19,6 @@ jobs:
         RUNNER_ALLOW_RUNASROOT: 1
 
     steps:
-      - name: Change permissions
-        run: chown -R $USER:$USER /home/runner/work
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Move into the gui-framework
