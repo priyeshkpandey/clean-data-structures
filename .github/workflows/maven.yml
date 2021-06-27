@@ -19,7 +19,8 @@ jobs:
     steps:
       - name: Provide permissions for the container
         run: chown -R $USER:$USER /__w/clean-data-structures/clean-data-structures
-      - uses: actions/checkout@v2
+      - name: actions/checkout@v2
+        run: /usr/bin/git clone https://github.com/priyeshkpandey/clean-data-structures.git
       - name: Move into the gui-framework
         run: cd gui-framework
       - name: Run the test using the Maven
