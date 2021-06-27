@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - uses: browser-actions/setup-chrome@91.0
-        run: chrome --version
+      - run: chrome --version
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Move into the gui-framework
