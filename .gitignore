@@ -2,3 +2,4 @@
 *.iml
 target/
 *.plantuml
+*.DS_Store

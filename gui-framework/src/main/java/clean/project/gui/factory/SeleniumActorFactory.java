@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import java.lang.reflect.Proxy;
 
 public class SeleniumActorFactory implements Factory<Actor<WebElement, By>> {
+    private static final String DOCKER_CHROME_URL = "localhost:3000";
 
     private SeleniumActorI seleniumActor;
     private SeleniumBrowserType seleniumBrowserType;
@@ -33,6 +34,9 @@ public class SeleniumActorFactory implements Factory<Actor<WebElement, By>> {
         switch (seleniumBrowserType) {
             case HEADLESS_CHROME: this.seleniumActor = (SeleniumActorI) Proxy.newProxyInstance(HeadlessChromeSeleniumActor.class.getClassLoader(),
                     new Class[] {SeleniumActorI.class}, new ActorHandler(new HeadlessChromeSeleniumActor()));
+                break;
+            case HEADLESS_CHROME_DOCKER: this.seleniumActor = (SeleniumActorI) Proxy.newProxyInstance(HeadlessChromeSeleniumActor.class.getClassLoader(),
+                    new Class[] {SeleniumActorI.class}, new ActorHandler(new HeadlessChromeSeleniumActor(DOCKER_CHROME_URL)));
                 break;
             case CHROME: this.seleniumActor = (SeleniumActorI) Proxy.newProxyInstance(ChromeSeleniumActor.class.getClassLoader(),
                     new Class[] {SeleniumActorI.class}, new ActorHandler(new ChromeSeleniumActor()));

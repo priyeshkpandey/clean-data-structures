@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class FirefoxSeleniumActor extends AbstractSeleniumActor {
     private static final String OS = System.getProperty("os.name").toLowerCase();
     private static final String FILE_SEPARATOR = System.getProperty("file.separator");
-    private static final String FIREFOX_DRIVERS_DIR = "gui-framework" + FILE_SEPARATOR + "exec" + FILE_SEPARATOR + "firefox_drivers" + FILE_SEPARATOR;
+    private static final String FIREFOX_DRIVERS_DIR = "exec" + FILE_SEPARATOR + "firefox_drivers" + FILE_SEPARATOR;
     private static final String GECKO_DRIVER_MAC = "geckodriver_mac";
     private static final String GECKO_DRIVER_LINUX = "geckodriver";
     private static final String GECKO_DRIVER_WINDOWS = "geckodriver.exe";

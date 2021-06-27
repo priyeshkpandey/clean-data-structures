@@ -1,7 +1,5 @@
 package clean.project.gui.google.pages;
 
-import java.io.FileOutputStream;
-
 public final class GooglePageElementNames {
     private GooglePageElementNames() {}
     public static final String EMPTY_TARGET = "empty";

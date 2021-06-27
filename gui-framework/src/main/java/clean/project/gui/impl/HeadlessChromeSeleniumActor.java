@@ -30,6 +30,12 @@ public class HeadlessChromeSeleniumActor extends AbstractSeleniumActor {
         this.driver.manage().timeouts().implicitlyWait(TIMEOUT_SECOND, TimeUnit.SECONDS);
     }
 
+    public HeadlessChromeSeleniumActor(final String remoteChromeUrl) {
+        initChromeDriverLocation();
+        this.driver = new ChromeDriver(getChromeOptions(remoteChromeUrl));
+        this.driver.manage().timeouts().implicitlyWait(TIMEOUT_SECOND, TimeUnit.SECONDS);
+    }
+
     private void initChromeDriverLocation() {
         if (OS.contains("win")) {
             System.setProperty("webdriver.chrome.driver", CHROME_DRIVERS_DIR + WINDOWS_DRIVER_NAME);
@@ -44,6 +50,15 @@ public class HeadlessChromeSeleniumActor extends AbstractSeleniumActor {
         final ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setAcceptInsecureCerts(true);
         chromeOptions.addArguments("--enable-javascript");
+        chromeOptions.setHeadless(true);
+        return chromeOptions;
+    }
+
+    private ChromeOptions getChromeOptions(final String remoteChromeUrl) {
+        final ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setAcceptInsecureCerts(true);
+        chromeOptions.addArguments("--enable-javascript");
+        chromeOptions.setCapability("debuggerAddress", remoteChromeUrl);
         chromeOptions.setHeadless(true);
         return chromeOptions;
     }
