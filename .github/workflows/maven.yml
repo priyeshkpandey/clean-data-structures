@@ -17,9 +17,7 @@ jobs:
       image: priyeshkpandeysf/gui-framework
 
     steps:
-      - name: Provide permissions for the container
-        run: chown -R $USER:$USER /__w/clean-data-structures/clean-data-structures
-      - name: actions/checkout@v2
+      - name: Checkout with git directly
         run: /usr/bin/git clone https://github.com/priyeshkpandey/clean-data-structures.git
       - name: Move into the gui-framework
         run: cd gui-framework
