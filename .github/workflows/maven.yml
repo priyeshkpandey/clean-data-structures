@@ -19,8 +19,12 @@ jobs:
         RUNNER_ALLOW_RUNASROOT: 1
 
     steps:
+      - name: Print directory
+        run: pwd
       - name: Move to home
         run: cd ~
+      - name: Print directory
+        run: pwd
       - name: Checkout repo
         run: git clone https://github.com/priyeshkpandey/clean-data-structures.git
       - name: Move into the gui-framework
