@@ -50,36 +50,6 @@
                     <mainClass>clean.project.gui.main.Demo</mainClass>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>${fabric8.version}</version>
-
-                <configuration>
-                    <images>
-                        <image>
-                            <name>priyeshkpandeysf/gui-framework</name>
-                            <build>
-                                <dockerFile>Dockerfile</dockerFile>
-                                <maintainer>priyeshkpandey@knowyoursf.com</maintainer>
-                                <tags>
-                                    <tag>latest</tag>
-                                    <tag>${project.version}</tag>
-                                </tags>
-                                <ports>
-                                    <port>3000:3000</port>
-                                </ports>
-                            </build>
-                        </image>
-                    </images>
-                    <authConfig>
-                        <push>
-                            <username>priyeshkpandeysf</username>
-                            <password>{1V3OSyZAgHAH0wh36Z1jrGWEvdQjlT2ukeF5Y/0l4ps=}</password>
-                        </push>
-                    </authConfig>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
