@@ -14,7 +14,7 @@
     <properties>
         <selenium.version>3.141.59</selenium.version>
         <maven.exec.plugin.version>1.6.0</maven.exec.plugin.version>
-        <testng.version>7.4.0</testng.version>
+        <testng.version>7.7.0</testng.version>
         <fabric8.version>0.36.0</fabric8.version>
     </properties>
 
