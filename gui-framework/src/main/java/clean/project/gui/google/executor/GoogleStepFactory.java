@@ -10,7 +10,7 @@ public class GoogleStepFactory implements Factory<AbstractGoogleSeleniumStep> {
     private SeleniumBrowserType seleniumBrowserType;
     private String pageName;
     private String targetName;
-    private List<Map<String, String>> actionSequence;
+    private List<Map<String, String>> actionSequence; // test comment
 
     @Override
     public AbstractGoogleSeleniumStep get() {
